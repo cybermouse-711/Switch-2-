@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
+    @IBOutlet var redTextField: UITextField!
+    @IBOutlet var greenTextField: UITextField!
+    @IBOutlet var BlueTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
