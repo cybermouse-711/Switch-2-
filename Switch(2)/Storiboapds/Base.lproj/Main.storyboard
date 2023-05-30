@@ -142,6 +142,10 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                     <color key="baseForegroundColor" systemColor="systemGrayColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OCW-TB-C4x"/>
+                                    <segue destination="3l4-iS-4Ju" kind="presentation" modalPresentationStyle="fullScreen" id="EFu-FS-2CL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -168,7 +172,6 @@
                         <outlet property="redLabel" destination="rOZ-Tx-0RQ" id="wWi-s7-r8K"/>
                         <outlet property="redSlider" destination="GwJ-We-WZn" id="5L9-0Z-32j"/>
                         <outlet property="redTextField" destination="EUt-LV-NxG" id="J5P-qY-4Jg"/>
-                        <segue destination="3l4-iS-4Ju" kind="presentation" id="jfd-pv-s1F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -180,7 +183,7 @@
             <objects>
                 <viewController id="2tz-3h-yPF" customClass="ColorViewController" customModule="Switch_2_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cvp-Bv-ogB">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="JoT-bk-yfc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -203,7 +206,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3l4-iS-4Ju" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QMF-av-Ti4">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

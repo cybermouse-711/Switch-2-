@@ -31,6 +31,8 @@ class SettingViewController: UIViewController {
       
         colorView.layer.cornerRadius = 15
     }
+    
+    
 
     @IBAction func actionSlider(_ sender: UISlider) {
         setView()
@@ -45,6 +47,8 @@ class SettingViewController: UIViewController {
         }
     }
     
+    @IBAction func doneButton(_ sender: UIButton) {
+    }
     
     private func setSlider() {
         redLabel.text = string(from: redSlider)
