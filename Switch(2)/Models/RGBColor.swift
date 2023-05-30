@@ -8,9 +8,10 @@
 
 struct RGBColor {
     
-    var redColor: Int
-    var greenColor: Int
-    var blueColor: Int
+    var redColor: Double
+    var greenColor: Double
+    var blueColor: Double
+    var alfa: Double
     
   /*
     static func getColorInt() {
