@@ -7,7 +7,11 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+protocol ColorViewContrrollerDelegate: AnyObject {
+    func setColor(_ color: RGBColor)
+}
+
+final class SettingViewController: UIViewController {
 
     
     @IBOutlet var colorView: UIView!
@@ -23,6 +27,17 @@ class SettingViewController: UIViewController {
     @IBOutlet var redTextField: UITextField!
     @IBOutlet var greenTextField: UITextField!
     @IBOutlet var BlueTextField: UITextField!
+    /*
+    private var color = RGBColor(
+        redColor: 0,
+        greenColor: 0,
+        blueColor: 0,
+        alfa: 0.5
+    ) {
+        didSet {
+            
+        }
+    } */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +48,9 @@ class SettingViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let navigationVC = segue.destination as? UINavigationController else { return }
-        guard let colorVC = navigationVC.topViewController as? ColorViewController else { return }
+        guard let colorVC = navigationVC.topViewController as? ColorViewController else {
+            return
+        }
         //colorVC.delegate = self
     }
 
@@ -68,9 +85,15 @@ class SettingViewController: UIViewController {
         )
     }
     
-    private func string(from slider: UISlider ) -> String {
-        String(format: "%.1f", slider.value)
+    private func string(from color: UISlider ) -> String {
+        String(format: "%.1f", color.value)
     }
     
 }
 
+// MARK: - SettingsViewControllerDelegate
+extension SettingViewController: ColorViewContrrollerDelegate {
+    func setColor(_ color: RGBColor) {
+        self.color = color
+    }
+}

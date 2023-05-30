@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ColorViewController: UIViewController {
+final class ColorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,4 +15,6 @@ class ColorViewController: UIViewController {
     }
     
 
+    @IBAction func settingButton(_ sender: UIBarButtonItem) {
+    }
 }

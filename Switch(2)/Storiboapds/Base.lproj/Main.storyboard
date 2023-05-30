@@ -192,6 +192,9 @@
                     <navigationItem key="navigationItem" id="moW-08-MFE">
                         <barButtonItem key="rightBarButtonItem" image="arrow.up.forward.app.fill" catalog="system" id="DGZ-IV-cr6">
                             <color key="tintColor" systemColor="secondaryLabelColor"/>
+                            <connections>
+                                <action selector="settingButton:" destination="2tz-3h-yPF" id="JwN-Wp-Ch9"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
