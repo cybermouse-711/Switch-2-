@@ -14,6 +14,7 @@
 		C69B92552A1163D400252729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69B92542A1163D400252729 /* Assets.xcassets */; };
 		C69B92582A1163D400252729 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69B92562A1163D400252729 /* LaunchScreen.storyboard */; };
 		C69B92902A26842C00252729 /* RGBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69B928F2A26842C00252729 /* RGBColor.swift */; };
+		C69B92982A2689CD00252729 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69B92972A2689CD00252729 /* ColorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C69B92572A1163D400252729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C69B92592A1163D400252729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C69B928F2A26842C00252729 /* RGBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColor.swift; sourceTree = "<group>"; };
+		C69B92972A2689CD00252729 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				C69B924F2A1163D300252729 /* SettingViewController.swift */,
+				C69B92972A2689CD00252729 /* ColorViewController.swift */,
 			);
 			path = ViewConrolers;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				C69B92502A1163D300252729 /* SettingViewController.swift in Sources */,
 				C69B924C2A1163D300252729 /* AppDelegate.swift in Sources */,
 				C69B924E2A1163D300252729 /* SceneDelegate.swift in Sources */,
+				C69B92982A2689CD00252729 /* ColorViewController.swift in Sources */,
 				C69B92902A26842C00252729 /* RGBColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
