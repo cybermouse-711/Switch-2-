@@ -28,11 +28,14 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         setView()
         setSlider()
-      
         colorView.layer.cornerRadius = 15
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let colorVC = navigationVC.topViewController as? ColorViewController else { return }
+        //colorVC.delegate = self
+    }
 
     @IBAction func actionSlider(_ sender: UISlider) {
         setView()
