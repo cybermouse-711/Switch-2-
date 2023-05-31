@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol ColorViewContrrollerDelegate: AnyObject {
-    func setColor(_ color: RGBColor)
-}
-
 final class SettingViewController: UIViewController {
 
     
@@ -27,36 +23,20 @@ final class SettingViewController: UIViewController {
     @IBOutlet var redTextField: UITextField!
     @IBOutlet var greenTextField: UITextField!
     @IBOutlet var BlueTextField: UITextField!
-    /*
-    private var color = RGBColor(
-        redColor: 0,
-        greenColor: 0,
-        blueColor: 0,
-        alfa: 0.5
-    ) {
-        didSet {
-            
-        }
-    } */
     
+    var color: RGBColor!
+    unowned var delegate: SettingViewContrrollerDelegate!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDelegete()
         setView()
         setSlider()
         colorView.layer.cornerRadius = 15
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let navigationVC = segue.destination as? UINavigationController else { return }
-        guard let colorVC = navigationVC.topViewController as? ColorViewController else {
-            return
-        }
-        //colorVC.delegate = self
-    }
 
     @IBAction func actionSlider(_ sender: UISlider) {
         setView()
-        
         switch sender {
         case redSlider:
             redLabel.text = string(from: sender)
@@ -68,12 +48,21 @@ final class SettingViewController: UIViewController {
     }
     
     @IBAction func doneButton(_ sender: UIButton) {
+        view.endEditing(true)
+        delegate.setColor(color)
+        dismiss(animated: true)
     }
     
     private func setSlider() {
         redLabel.text = string(from: redSlider)
         greenLabel.text = string(from: greenSlider)
         blueLabel.text = string(from: blueSlider)
+    }
+    
+    private func setDelegete(){
+        redSlider.delegate = self
+        greenSlider.delegate = self
+        blueSlider.delegate = self
     }
     
     private func setView() {
@@ -91,9 +80,19 @@ final class SettingViewController: UIViewController {
     
 }
 
-// MARK: - SettingsViewControllerDelegate
-extension SettingViewController: ColorViewContrrollerDelegate {
-    func setColor(_ color: RGBColor) {
-        self.color = color
+// MARK: - UITextFieldDelegate
+extension SettingViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let value = textField.text else { return }
+        guard let numberValue = Double(value) else { return }
+        
+        switch textField {
+        case redSlider:
+            redSlider.value = Float(numberValue)
+        case greenSlider:
+            greenSlider.value = Float(numberValue)
+        default:
+            blueSlider.value = Float(numberValue)
+        }
     }
 }
