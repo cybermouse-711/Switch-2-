@@ -73,8 +73,8 @@
 		C69B92932A2684B600252729 /* ViewConrolers */ = {
 			isa = PBXGroup;
 			children = (
-				C69B924F2A1163D300252729 /* SettingViewController.swift */,
 				C69B92972A2689CD00252729 /* ColorViewController.swift */,
+				C69B924F2A1163D300252729 /* SettingViewController.swift */,
 			);
 			path = ViewConrolers;
 			sourceTree = "<group>";
