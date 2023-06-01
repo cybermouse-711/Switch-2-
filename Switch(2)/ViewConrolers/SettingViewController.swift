@@ -32,6 +32,11 @@ final class SettingViewController: UIViewController {
         setView()
         setLabel()
         setTextField()
+        
+        redTextField.delegate = self
+        greenTextField.delegate = self
+        blueTextField.delegate = self
+        
         colorView.layer.cornerRadius = 15
     }
     
