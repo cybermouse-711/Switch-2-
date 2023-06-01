@@ -113,17 +113,17 @@
                                                     <constraint firstAttribute="width" constant="55" id="aM4-YA-KPk"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zD8-VJ-EzS">
                                                 <rect key="frame" x="0.0" y="35" width="55" height="30.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hre-d9-Qdg">
                                                 <rect key="frame" x="0.0" y="70.333333333333314" width="55" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -161,9 +161,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="BlueTextField" destination="hre-d9-Qdg" id="umP-ss-wO3"/>
                         <outlet property="blueLabel" destination="wUz-KV-I7L" id="HFK-p1-l5L"/>
                         <outlet property="blueSlider" destination="ni7-22-gIH" id="7Lo-YN-NI8"/>
+                        <outlet property="blueTextField" destination="hre-d9-Qdg" id="umP-ss-wO3"/>
                         <outlet property="colorView" destination="uba-FA-dBy" id="mpD-72-TuR"/>
                         <outlet property="greenLabel" destination="VJg-h4-1H1" id="ywd-aB-gUM"/>
                         <outlet property="greenSlider" destination="dRP-QI-Esh" id="q5k-ec-6QN"/>
@@ -175,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2406" y="4"/>
+            <point key="canvasLocation" x="2363" y="4"/>
         </scene>
         <!--Color View Controller-->
         <scene sceneID="bN8-bw-71G">
