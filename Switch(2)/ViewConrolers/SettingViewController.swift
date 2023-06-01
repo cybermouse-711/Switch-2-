@@ -109,10 +109,12 @@ extension SettingViewController: UITextFieldDelegate {
         switch textField {
         case redTextField:
             redSlider.value = numberValue
+            redLabel.text = String(numberValue)
         case greenTextField:
             greenSlider.value = numberValue
+            greenLabel.text = String(numberValue)
         case blueTextField:
-            blueSlider.value = numberValue
+            blueLabel.text = String(numberValue)
         default:
             showAlert(title: "Ошибка!", message: "Введите число")
         }
