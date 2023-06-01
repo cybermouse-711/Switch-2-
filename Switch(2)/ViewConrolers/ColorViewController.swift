@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SettingViewContrrollerDelegate: AnyObject {
-    func setColor(_ color: RGBColor)
+    func setColor(for color: RGBColor)
 }
 
 final class ColorViewController: UIViewController {
@@ -18,11 +18,9 @@ final class ColorViewController: UIViewController {
         greenColor: 0,
         blueColor: 0,
         alfa: 0.5
-    )
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    ) { didSet {
+        view.backgroundColor = color.setColorRGB(redColor: color.redColor, greenColor: color.greenColor, blueColor: color.blueColor, alfa: color.alfa)
+      }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,13 +29,14 @@ final class ColorViewController: UIViewController {
         settingVC.delegate = self
     }
 
-    @IBAction func settingButton(_ sender: UIBarButtonItem) {
-    }
+    //@IBAction func settingButton(_ sender: UIBarButtonItem) {
+        
+   // }
 }
 
 // MARK: - SettingViewContrrollerDelegate
 extension ColorViewController: SettingViewContrrollerDelegate {
-    func setColor(_ color: RGBColor) {
+    func setColor(for color: RGBColor) {
        self.color = color
     }
 }
