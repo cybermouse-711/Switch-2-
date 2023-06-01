@@ -22,77 +22,96 @@ final class SettingViewController: UIViewController {
     
     @IBOutlet var redTextField: UITextField!
     @IBOutlet var greenTextField: UITextField!
-    @IBOutlet var BlueTextField: UITextField!
+    @IBOutlet var blueTextField: UITextField!
     
     var color: RGBColor!
-    unowned var delegate: SettingViewContrrollerDelegate!
+    var delegate: SettingViewContrrollerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDelegete()
         setView()
-        setSlider()
+        setLabel()
+        setTextField()
         colorView.layer.cornerRadius = 15
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
 
     @IBAction func actionSlider(_ sender: UISlider) {
         setView()
         switch sender {
         case redSlider:
-            redLabel.text = string(from: sender)
+            redLabel.text = color.string(sender)
+            redTextField.text = color.string(sender)
         case greenSlider:
-            greenLabel.text = string(from: sender)
+            greenLabel.text = color.string(sender)
+            greenTextField.text = color.string(sender)
         default:
-            blueLabel.text = string(from: sender)
+            blueLabel.text = color.string(sender)
+            blueTextField.text = color.string(sender)
         }
     }
     
     @IBAction func doneButton(_ sender: UIButton) {
         view.endEditing(true)
-        delegate.setColor(color)
+        delegate.setColor(for: color)
         dismiss(animated: true)
     }
     
-    private func setSlider() {
-        redLabel.text = string(from: redSlider)
-        greenLabel.text = string(from: greenSlider)
-        blueLabel.text = string(from: blueSlider)
+    private func setLabel() {
+        redLabel.text = color.string(redSlider)
+        greenLabel.text = color.string(greenSlider)
+        blueLabel.text = color.string(blueSlider)
     }
     
-    private func setDelegete(){
-        redSlider.delegate = self
-        greenSlider.delegate = self
-        blueSlider.delegate = self
+    private func setTextField() {
+        redTextField.text = color.string(redSlider)
+        greenTextField.text = color.string(greenSlider)
+        blueTextField.text = color.string(blueSlider)
     }
     
     private func setView() {
-        colorView.backgroundColor = UIColor(
-            red: CGFloat(redSlider.value),
-            green: CGFloat(greenSlider.value),
-            blue: CGFloat(blueSlider.value),
-            alpha: 0.5
+        colorView.backgroundColor = color.setColorRGB(
+            redColor: redSlider.value,
+            greenColor: greenSlider.value,
+            blueColor: blueSlider.value,
+            alfa: 0.5
         )
     }
-    
-    private func string(from color: UISlider ) -> String {
-        String(format: "%.1f", color.value)
+}
+
+// MARK: - Private Methods
+private extension SettingViewController {
+    func showAlert(title: String, message: String, textField: UITextField? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text = ""
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
-    
 }
 
 // MARK: - UITextFieldDelegate
 extension SettingViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let value = textField.text else { return }
-        guard let numberValue = Double(value) else { return }
+        guard let numberValue = Float(value) else { return }
         
         switch textField {
-        case redSlider:
-            redSlider.value = Float(numberValue)
-        case greenSlider:
-            greenSlider.value = Float(numberValue)
+        case redTextField:
+            redSlider.value = numberValue
+        case greenTextField:
+            greenSlider.value = numberValue
+        case blueTextField:
+            blueSlider.value = numberValue
         default:
-            blueSlider.value = Float(numberValue)
+            showAlert(title: "Ошибка!", message: "Введите число")
         }
     }
 }
+
+
